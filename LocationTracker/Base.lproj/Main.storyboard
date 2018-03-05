@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,75 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="8bC-Xf-vdC">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LocationTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cell number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDW-RH-1hf">
+                                <rect key="frame" x="16" y="317" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="omC-va-f6w"/>
+                                    <constraint firstAttribute="height" constant="50" id="wYi-Yq-fFM"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxW-Xc-1W9">
+                                <rect key="frame" x="16" y="390" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="67M-hZ-UYs"/>
+                                    <constraint firstAttribute="width" constant="343" id="dOj-XN-x1y"/>
+                                </constraints>
+                                <state key="normal" title="Start Tracking"/>
+                                <connections>
+                                    <action selector="sendLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I8L-iw-Uh1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ss-OE-Eph">
+                                <rect key="frame" x="16" y="288" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FreightPing" translatesAutoresizingMaskIntoConstraints="NO" id="mIc-BR-Hfn">
+                                <rect key="frame" x="67" y="74" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="1IW-pP-eNs"/>
+                                    <constraint firstAttribute="height" constant="128" id="6Al-sD-FRK"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mIc-BR-Hfn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="0tC-PD-Y3k"/>
+                            <constraint firstItem="4ss-OE-Eph" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1Zo-vD-Pwc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TxW-Xc-1W9" secondAttribute="trailing" constant="16" id="9nf-w2-c4S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YDW-RH-1hf" secondAttribute="trailing" constant="16" id="DFj-uR-7Hc"/>
+                            <constraint firstItem="YDW-RH-1hf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Io7-LC-szo"/>
+                            <constraint firstItem="TxW-Xc-1W9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Nz4-th-RVn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4ss-OE-Eph" secondAttribute="trailing" constant="199" id="UC6-6J-q65"/>
+                            <constraint firstItem="TxW-Xc-1W9" firstAttribute="top" secondItem="YDW-RH-1hf" secondAttribute="bottom" constant="23" id="Yqw-sn-P0J"/>
+                            <constraint firstItem="YDW-RH-1hf" firstAttribute="top" secondItem="4ss-OE-Eph" secondAttribute="bottom" constant="8" id="ace-PD-ilE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mIc-BR-Hfn" secondAttribute="trailing" constant="68" id="ahp-H2-ktY"/>
+                            <constraint firstItem="mIc-BR-Hfn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="i3h-qo-4gI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TxW-Xc-1W9" secondAttribute="bottom" constant="227" id="kCK-4r-Aii"/>
+                            <constraint firstItem="mIc-BR-Hfn" firstAttribute="leading" secondItem="4ss-OE-Eph" secondAttribute="trailing" constant="-109" id="lZv-yL-3J2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cellField" destination="YDW-RH-1hf" id="W6Q-3n-B2b"/>
+                        <outlet property="locationButton" destination="TxW-Xc-1W9" id="ipD-Ql-Dwz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FreightPing" width="150" height="88"/>
+    </resources>
 </document>

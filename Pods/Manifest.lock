@@ -1,0 +1,12 @@
+PODS:
+  - APScheduledLocationManager (1.0.1)
+
+DEPENDENCIES:
+  - APScheduledLocationManager
+
+SPEC CHECKSUMS:
+  APScheduledLocationManager: ec688cae8b606c6f7a5234189c3954eb9a6d3ace
+
+PODFILE CHECKSUM: 5b1f718fc0e597226237b1101af2667f64b03297
+
+COCOAPODS: 1.2.1
