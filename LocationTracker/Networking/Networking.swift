@@ -55,6 +55,32 @@ class Networking {
     }
     
     func sendRequest<T: Parseable>(_ request: URLRequest, _ completion: @escaping (Result<T>) -> ()) {
+        let session = URLSession.init(configuration: .default)
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                completion(Result.failure)
+                return
+            }
+            print(data)
+            completion(Result.success(T(data: data)))
+        }
+        dataTask.resume()
+    }
+    
+    func reportLocationPostRequest(_ latitutde: String, _ longitude: String) -> URLRequest {
+        guard let phoneNumber = PhoneNumber.retrieveNumber(), let url = URL.init(string: "https://carriers.uslfreight.com/ws/index.asmx/ReportLocation") else {
+            fatalError("Error converting string to URL")
+        }
+        
+        let dataString = "Phone=\(phoneNumber)&Username=\(Credentials.username)&Password=\(Credentials.password)&Latitude=\(latitutde)&Longitude=\(longitude)&UserAgent=iOS"
+        
+        let data = dataString.data(using: .utf8, allowLossyConversion: false)
+        var request = URLRequest.init(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("\(String(describing: request.httpBody?.count))", forHTTPHeaderField: "Content-Length")
+        return request
         
     }
 }

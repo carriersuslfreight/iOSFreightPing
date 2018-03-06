@@ -6,7 +6,7 @@ target 'LocationTracker' do
   use_frameworks!
 
   # Pods for LocationTracker
-pod 'APScheduledLocationManager'
+pod 'PhoneNumberKit', '~> 2.1'
 
   target 'LocationTrackerTests' do
     inherit! :search_paths

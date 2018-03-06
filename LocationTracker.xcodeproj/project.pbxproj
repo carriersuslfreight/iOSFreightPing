@@ -23,6 +23,8 @@
 		F29A803B1F2EEBC1002896D7 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29A803A1F2EEBC1002896D7 /* PhoneNumber.swift */; };
 		F2E64908204CFC5900271D48 /* Parseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E64907204CFC5900271D48 /* Parseable.swift */; };
 		F2E6490A204CFCC200271D48 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E64909204CFCC200271D48 /* Result.swift */; };
+		F2E6490C204E3A3100271D48 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6490B204E3A3100271D48 /* Credentials.swift */; };
+		F2E6490E204E40AC00271D48 /* RecordLocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6490D204E40AC00271D48 /* RecordLocationType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		F2B5B7E21F2AE8EB006C0498 /* LocationTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LocationTracker.entitlements; sourceTree = "<group>"; };
 		F2E64907204CFC5900271D48 /* Parseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parseable.swift; sourceTree = "<group>"; };
 		F2E64909204CFCC200271D48 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		F2E6490B204E3A3100271D48 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		F2E6490D204E40AC00271D48 /* RecordLocationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordLocationType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 				F29A80361F2EE0BE002896D7 /* Networking.swift */,
 				F2E64907204CFC5900271D48 /* Parseable.swift */,
 				F2E64909204CFCC200271D48 /* Result.swift */,
+				F2E6490B204E3A3100271D48 /* Credentials.swift */,
+				F2E6490D204E40AC00271D48 /* RecordLocationType.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -372,7 +378,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2E6490A204CFCC200271D48 /* Result.swift in Sources */,
+				F2E6490E204E40AC00271D48 /* RecordLocationType.swift in Sources */,
 				F29A80391F2EE113002896D7 /* LocationInfo.swift in Sources */,
+				F2E6490C204E3A3100271D48 /* Credentials.swift in Sources */,
 				F2E64908204CFC5900271D48 /* Parseable.swift in Sources */,
 				F29A803B1F2EEBC1002896D7 /* PhoneNumber.swift in Sources */,
 				F224DCB41F29463A00A53B42 /* LocationManager.swift in Sources */,
