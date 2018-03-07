@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         networking.sendRequest(networking.reportLocationPostRequest("12345", "2154w")) { (result: Result<RecordLocationType>) in
             print(result)
         }
+        
+        let tapRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(self.removeKeyboard))
+        self.view.addGestureRecognizer(tapRecognizer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,16 +40,59 @@ class ViewController: UIViewController {
 
 
     @IBAction func sendLocation(_ sender: Any) {
-        LocationManager.shared.start()
+        if let number = self.cellField.text?.digits {
+            if number.count == 10 {
+                PhoneNumber.savePhoneNumber(number)
+                LocationManager.shared.isUpdating ? LocationManager.shared.stop() : LocationManager.shared.start()
+                LocationManager.shared.isUpdating ? self.locationButton.setTitle("Stop Tracking", for: .normal) : self.locationButton.setTitle("Start Tracking", for: .normal)
+            } else {
+                let alertController = UIAlertController.init(title: "Error", message: "Invalid Phone Number", preferredStyle: .alert)
+                let okAction = UIAlertAction.init(title: "Ok", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    @objc
+    func removeKeyboard() {
+        self.cellField.resignFirstResponder()
     }
 }
 
 extension ViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let text = textField.text, let textRange = Range(range, in: text) { let phoneNumber = text.replacingCharacters(in: textRange, with: string)
-            print(phoneNumber)
+        if !string.containsDigits && string != "" {
+            return false
         }
+
+        if let text = textField.text, let textRange = Range(range, in: text) {            
+            self.cellField.text = text.replacingCharacters(in: textRange, with: string)
+            if let number = self.cellField.text, let phonenumber = PhoneNumber.format(phoneNumber: number) {
+                self.cellField.text = phonenumber
+            }
+            return false
+        }
+        
         return true
+    }
+}
+
+
+extension String {
+    var digits: String { return components(separatedBy: CharacterSet.decimalDigits.inverted).joined() }
+    var containsDigits: Bool { return self.digits != "" }
+    
+    func substring(start: Int, offsetBy: Int) -> String? {
+        guard let substringStartIndex = self.index(startIndex, offsetBy: start, limitedBy: endIndex) else {
+            return nil
+        }
+        
+        guard let substringEndIndex = self.index(startIndex, offsetBy: start + offsetBy, limitedBy: endIndex) else {
+            return nil
+        }
+        
+        return String(self[substringStartIndex ..< substringEndIndex])
     }
 }
 

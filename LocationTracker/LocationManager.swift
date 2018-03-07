@@ -16,6 +16,7 @@ class LocationManager: NSObject {
     
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
+    var isUpdating: Bool = false
     
     private var timer : Timer!
     
@@ -31,11 +32,17 @@ class LocationManager: NSObject {
     
     func start() {
         self.locationManager.startUpdatingLocation()
-        Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true, block: { (Timer) in
+        self.isUpdating = true
+        self.timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true, block: { (Timer) in
             print(self.currentLocation)
         })
     }
     
+    func stop() {
+        self.locationManager.stopUpdatingLocation()
+        self.isUpdating = false
+        self.timer.invalidate()
+    }
 }
 
 extension LocationManager : CLLocationManagerDelegate {
