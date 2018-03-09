@@ -16,6 +16,7 @@ class LocationManager: NSObject {
     
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
+    var locationInterval: Double = 10.0
     var isUpdating: Bool = false
     
     private var timer : Timer!
@@ -27,14 +28,27 @@ class LocationManager: NSObject {
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         self.locationManager.allowsBackgroundLocationUpdates = true
         self.locationManager.pausesLocationUpdatesAutomatically = false
-        
     }
     
     func start() {
         self.locationManager.startUpdatingLocation()
         self.isUpdating = true
-        self.timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true, block: { (Timer) in
-            print(self.currentLocation)
+        
+        self.timer = Timer.scheduledTimer(withTimeInterval: self.locationInterval, repeats: true, block: { (Timer) in
+            guard let currentLocation = self.currentLocation else {
+                return
+            }
+            let locationRequest = Networking.reportLocationPostRequest(String(currentLocation.coordinate.latitude), String(currentLocation.coordinate.longitude))
+            Networking.sendRequest(locationRequest, { (result: Result<LocationResponseType>) in
+                switch result {
+                case .success(let response):
+                    print(response)
+                    //Happy
+                case .failure:
+                    print("Failure")
+                    //Discuss Failure
+                }
+            })
         })
     }
     

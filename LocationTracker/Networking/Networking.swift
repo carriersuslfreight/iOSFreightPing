@@ -17,7 +17,7 @@ class Networking {
     
     typealias NetworkingCompletion = ((_ result : NetworkResult) -> Void)
     
-    func sendCurrentLocation(_ locationInfo : LocationInfo, completion : @escaping NetworkingCompletion) {
+    static func sendCurrentLocation(_ locationInfo : LocationInfo, completion : @escaping NetworkingCompletion) {
         guard let url = URL.init(string: "https://location-tracker-kotlin.herokuapp.com/currentLocation") else {
             completion(.failure)
             return
@@ -54,20 +54,19 @@ class Networking {
         dataTask.resume()
     }
     
-    func sendRequest<T: Parseable>(_ request: URLRequest, _ completion: @escaping (Result<T>) -> ()) {
+    static func sendRequest<T: StatusCodable>(_ request: URLRequest, _ completion: @escaping (Result<T>) -> ()) {
         let session = URLSession.init(configuration: .default)
         let dataTask = session.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {
-                completion(Result.failure)
+            if let response = response as? HTTPURLResponse {
+                response.statusCode == 200 ? completion(.success(T(response.statusCode))) : completion(.failure)
                 return
             }
-            print(data)
-            completion(Result.success(T(data: data)))
+            completion(.failure)
         }
         dataTask.resume()
     }
     
-    func reportLocationPostRequest(_ latitutde: String, _ longitude: String) -> URLRequest {
+    static func reportLocationPostRequest(_ latitutde: String, _ longitude: String) -> URLRequest {
         guard let phoneNumber = PhoneNumber.retrieveNumber(), let url = URL.init(string: "https://carriers.uslfreight.com/ws/index.asmx/ReportLocation") else {
             fatalError("Error converting string to URL")
         }
@@ -81,8 +80,11 @@ class Networking {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.setValue("\(String(describing: request.httpBody?.count))", forHTTPHeaderField: "Content-Length")
         return request
-        
     }
+    
+//    static func fetchTimerDetails() -> URLRequest {
+//        guard let
+//    }
 }
 
 

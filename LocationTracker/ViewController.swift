@@ -13,8 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var cellField: UITextField!
     @IBOutlet weak var locationButton: UIButton!
-    let networking = Networking()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //LocationManager.shared
@@ -25,8 +24,8 @@ class ViewController: UIViewController {
         self.cellField.layer.cornerRadius = 3.0
         self.cellField.layer.borderWidth = 1.0
         self.cellField.delegate = self
-        networking.sendRequest(networking.reportLocationPostRequest("12345", "2154w")) { (result: Result<RecordLocationType>) in
-            print(result)
+        if let phoneNumber = PhoneNumber.retrieveNumber() {
+            self.cellField.text = PhoneNumber.format(phoneNumber: phoneNumber)
         }
         
         let tapRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(self.removeKeyboard))

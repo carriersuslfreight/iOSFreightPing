@@ -25,6 +25,8 @@
 		F2E6490A204CFCC200271D48 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E64909204CFCC200271D48 /* Result.swift */; };
 		F2E6490C204E3A3100271D48 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6490B204E3A3100271D48 /* Credentials.swift */; };
 		F2E6490E204E40AC00271D48 /* RecordLocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6490D204E40AC00271D48 /* RecordLocationType.swift */; };
+		F2E6491420523A2000271D48 /* LocationReponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6491320523A2000271D48 /* LocationReponseType.swift */; };
+		F2E6491620523B0800271D48 /* StatusCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6491520523B0800271D48 /* StatusCodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		F2E64909204CFCC200271D48 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F2E6490B204E3A3100271D48 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		F2E6490D204E40AC00271D48 /* RecordLocationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordLocationType.swift; sourceTree = "<group>"; };
+		F2E6491320523A2000271D48 /* LocationReponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReponseType.swift; sourceTree = "<group>"; };
+		F2E6491520523B0800271D48 /* StatusCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,9 +166,11 @@
 			children = (
 				F29A80361F2EE0BE002896D7 /* Networking.swift */,
 				F2E64907204CFC5900271D48 /* Parseable.swift */,
+				F2E6491520523B0800271D48 /* StatusCodable.swift */,
 				F2E64909204CFCC200271D48 /* Result.swift */,
 				F2E6490B204E3A3100271D48 /* Credentials.swift */,
 				F2E6490D204E40AC00271D48 /* RecordLocationType.swift */,
+				F2E6491320523A2000271D48 /* LocationReponseType.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -388,6 +394,8 @@
 				F224DC901F29458300A53B42 /* ViewController.swift in Sources */,
 				F224DC8E1F29458300A53B42 /* AppDelegate.swift in Sources */,
 				F224DC961F29458300A53B42 /* LocationTracker.xcdatamodeld in Sources */,
+				F2E6491620523B0800271D48 /* StatusCodable.swift in Sources */,
+				F2E6491420523A2000271D48 /* LocationReponseType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

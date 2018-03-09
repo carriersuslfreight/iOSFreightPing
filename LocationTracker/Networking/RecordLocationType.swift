@@ -9,7 +9,7 @@
 import Foundation
 
 struct RecordLocationType: Parseable {
-    let data: Data
+    let data: Data    
     init(data: Data) {
         self.data = data
     }
