@@ -18,14 +18,14 @@
 		F224DCA61F29458300A53B42 /* LocationTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F224DCA51F29458300A53B42 /* LocationTrackerTests.swift */; };
 		F224DCB21F2945B800A53B42 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F224DCB11F2945B800A53B42 /* CoreLocation.framework */; };
 		F224DCB41F29463A00A53B42 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F224DCB31F29463A00A53B42 /* LocationManager.swift */; };
+		F23BA1C420537756003A59B0 /* TimeResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BA1C320537756003A59B0 /* TimeResponseType.swift */; };
 		F29A80371F2EE0BE002896D7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29A80361F2EE0BE002896D7 /* Networking.swift */; };
 		F29A80391F2EE113002896D7 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29A80381F2EE113002896D7 /* LocationInfo.swift */; };
 		F29A803B1F2EEBC1002896D7 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29A803A1F2EEBC1002896D7 /* PhoneNumber.swift */; };
 		F2E64908204CFC5900271D48 /* Parseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E64907204CFC5900271D48 /* Parseable.swift */; };
 		F2E6490A204CFCC200271D48 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E64909204CFCC200271D48 /* Result.swift */; };
 		F2E6490C204E3A3100271D48 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6490B204E3A3100271D48 /* Credentials.swift */; };
-		F2E6490E204E40AC00271D48 /* RecordLocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6490D204E40AC00271D48 /* RecordLocationType.swift */; };
-		F2E6491420523A2000271D48 /* LocationReponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6491320523A2000271D48 /* LocationReponseType.swift */; };
+		F2E6490E204E40AC00271D48 /* RecordLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6490D204E40AC00271D48 /* RecordLocationResponse.swift */; };
 		F2E6491620523B0800271D48 /* StatusCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E6491520523B0800271D48 /* StatusCodable.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +59,7 @@
 		F224DCA71F29458300A53B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F224DCB11F2945B800A53B42 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F224DCB31F29463A00A53B42 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F23BA1C320537756003A59B0 /* TimeResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeResponseType.swift; sourceTree = "<group>"; };
 		F29A80361F2EE0BE002896D7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		F29A80381F2EE113002896D7 /* LocationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
 		F29A803A1F2EEBC1002896D7 /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
@@ -66,8 +67,7 @@
 		F2E64907204CFC5900271D48 /* Parseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parseable.swift; sourceTree = "<group>"; };
 		F2E64909204CFCC200271D48 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F2E6490B204E3A3100271D48 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
-		F2E6490D204E40AC00271D48 /* RecordLocationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordLocationType.swift; sourceTree = "<group>"; };
-		F2E6491320523A2000271D48 /* LocationReponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReponseType.swift; sourceTree = "<group>"; };
+		F2E6490D204E40AC00271D48 /* RecordLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordLocationResponse.swift; sourceTree = "<group>"; };
 		F2E6491520523B0800271D48 /* StatusCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,8 +169,8 @@
 				F2E6491520523B0800271D48 /* StatusCodable.swift */,
 				F2E64909204CFCC200271D48 /* Result.swift */,
 				F2E6490B204E3A3100271D48 /* Credentials.swift */,
-				F2E6490D204E40AC00271D48 /* RecordLocationType.swift */,
-				F2E6491320523A2000271D48 /* LocationReponseType.swift */,
+				F2E6490D204E40AC00271D48 /* RecordLocationResponse.swift */,
+				F23BA1C320537756003A59B0 /* TimeResponseType.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -307,13 +307,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocationTracker-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		98008658CD102704DEA7799F /* [CP] Embed Pods Frameworks */ = {
@@ -322,9 +325,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LocationTracker/Pods-LocationTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -337,13 +343,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocationTrackerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E4FF2C3E90CDDB2C48A00C71 /* [CP] Copy Pods Resources */ = {
@@ -384,18 +393,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2E6490A204CFCC200271D48 /* Result.swift in Sources */,
-				F2E6490E204E40AC00271D48 /* RecordLocationType.swift in Sources */,
+				F2E6490E204E40AC00271D48 /* RecordLocationResponse.swift in Sources */,
 				F29A80391F2EE113002896D7 /* LocationInfo.swift in Sources */,
 				F2E6490C204E3A3100271D48 /* Credentials.swift in Sources */,
 				F2E64908204CFC5900271D48 /* Parseable.swift in Sources */,
 				F29A803B1F2EEBC1002896D7 /* PhoneNumber.swift in Sources */,
 				F224DCB41F29463A00A53B42 /* LocationManager.swift in Sources */,
+				F23BA1C420537756003A59B0 /* TimeResponseType.swift in Sources */,
 				F29A80371F2EE0BE002896D7 /* Networking.swift in Sources */,
 				F224DC901F29458300A53B42 /* ViewController.swift in Sources */,
 				F224DC8E1F29458300A53B42 /* AppDelegate.swift in Sources */,
 				F224DC961F29458300A53B42 /* LocationTracker.xcdatamodeld in Sources */,
 				F2E6491620523B0800271D48 /* StatusCodable.swift in Sources */,
-				F2E6491420523A2000271D48 /* LocationReponseType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Kanna
 
 class Networking {
     
@@ -54,14 +55,19 @@ class Networking {
         dataTask.resume()
     }
     
-    static func sendRequest<T: StatusCodable>(_ request: URLRequest, _ completion: @escaping (Result<T>) -> ()) {
+    static func sendRequest<T: Parseable>(_ request: URLRequest, _ completion: @escaping (Result<T>) -> ()) {
         let session = URLSession.init(configuration: .default)
         let dataTask = session.dataTask(with: request) { (data, response, error) in
-            if let response = response as? HTTPURLResponse {
-                response.statusCode == 200 ? completion(.success(T(response.statusCode))) : completion(.failure)
+            guard let data = data else {
+                completion(.failure)
                 return
             }
-            completion(.failure)
+            
+            do {
+                completion(.success( try T(data: data)))
+            } catch {
+                completion(.failure)
+            }
         }
         dataTask.resume()
     }
@@ -82,9 +88,14 @@ class Networking {
         return request
     }
     
-//    static func fetchTimerDetails() -> URLRequest {
-//        guard let
-//    }
+    static func fetchTimerDetails() -> URLRequest {
+        guard let url = URL.init(string: "https://carriers.uslfreight.com/ws/index.asmx/GetTimer?Username=\(Credentials.username)&Password=\(Credentials.password)") else {
+            fatalError("Error converting url")
+        }
+        var request = URLRequest.init(url: url)
+        request.httpMethod = "GET"
+        return request
+    }
 }
 
 

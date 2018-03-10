@@ -1,12 +1,12 @@
 PODS:
-  - APScheduledLocationManager (1.0.1)
+  - Kanna (4.0.0)
 
 DEPENDENCIES:
-  - APScheduledLocationManager
+  - Kanna (~> 4.0.0)
 
 SPEC CHECKSUMS:
-  APScheduledLocationManager: ec688cae8b606c6f7a5234189c3954eb9a6d3ace
+  Kanna: d5ae2a26472f7e7a474e7f36a9cd8aa2c8c63ad3
 
-PODFILE CHECKSUM: 5b1f718fc0e597226237b1101af2667f64b03297
+PODFILE CHECKSUM: de58a064c4e046dcaaa4e740a72d3964647af8f9
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0

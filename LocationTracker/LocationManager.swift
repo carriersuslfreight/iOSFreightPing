@@ -16,7 +16,7 @@ class LocationManager: NSObject {
     
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
-    var locationInterval: Double = 10.0
+    var timeInterval: Double = 10.0
     var isUpdating: Bool = false
     
     private var timer : Timer!
@@ -34,12 +34,13 @@ class LocationManager: NSObject {
         self.locationManager.startUpdatingLocation()
         self.isUpdating = true
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: self.locationInterval, repeats: true, block: { (Timer) in
+        self.timer = Timer.scheduledTimer(withTimeInterval: self.timeInterval, repeats: true, block: { (Timer) in
             guard let currentLocation = self.currentLocation else {
                 return
             }
+            
             let locationRequest = Networking.reportLocationPostRequest(String(currentLocation.coordinate.latitude), String(currentLocation.coordinate.longitude))
-            Networking.sendRequest(locationRequest, { (result: Result<LocationResponseType>) in
+            Networking.sendRequest(locationRequest, { (result: Result<RecordLocationResponse>) in
                 switch result {
                 case .success(let response):
                     print(response)

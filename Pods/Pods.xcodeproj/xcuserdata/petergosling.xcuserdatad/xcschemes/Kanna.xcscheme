@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2629F2A9C43F48870DE3DEC54F6527B2'
-               BlueprintName = 'APScheduledLocationManager'
+               BlueprintIdentifier = '25622BDCA24151D7C101C916DCD4C64D'
+               BlueprintName = 'Kanna'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'APScheduledLocationManager.framework'>
+               BuildableName = 'Kanna.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

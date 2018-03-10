@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Parseable {
-    init(data: Data)
+    init(data: Data) throws
 }

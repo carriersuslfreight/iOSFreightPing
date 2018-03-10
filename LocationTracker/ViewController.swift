@@ -16,7 +16,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //LocationManager.shared
         self.locationButton.layer.cornerRadius = 3.0
         self.locationButton.layer.borderColor = UIColor.lightGray.cgColor
         self.locationButton.layer.borderWidth = 1.0
@@ -30,13 +29,16 @@ class ViewController: UIViewController {
         
         let tapRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(self.removeKeyboard))
         self.view.addGestureRecognizer(tapRecognizer)
+        
+        Networking.sendRequest(Networking.fetchTimerDetails()) { (result: Result<TimeResponseType>) in
+            switch result {
+            case .success(let timeResponse):
+                LocationManager.shared.timeInterval = timeResponse.time
+            case .failure:
+                break
+            }
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
     @IBAction func sendLocation(_ sender: Any) {
         if let number = self.cellField.text?.digits {
