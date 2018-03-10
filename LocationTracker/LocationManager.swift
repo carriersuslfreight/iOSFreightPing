@@ -14,7 +14,7 @@ class LocationManager: NSObject {
     
     static let shared = LocationManager()
     
-    let locationManager = CLLocationManager()
+    var locationManager: CLLocationManager!
     var currentLocation: CLLocation?
     var timeInterval: Double = 10.0
     var isUpdating: Bool = false
@@ -23,11 +23,14 @@ class LocationManager: NSObject {
     
     override init() {
         super.init()
-        locationManager.requestAlwaysAuthorization()
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        self.locationManager.allowsBackgroundLocationUpdates = true
-        self.locationManager.pausesLocationUpdatesAutomatically = false
+        DispatchQueue.main.async {
+            self.locationManager = CLLocationManager()
+            self.locationManager.requestAlwaysAuthorization()
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            self.locationManager.allowsBackgroundLocationUpdates = true
+            self.locationManager.pausesLocationUpdatesAutomatically = false
+        }
     }
     
     func start() {
@@ -44,7 +47,7 @@ class LocationManager: NSObject {
                 switch result {
                 case .success(let response):
                     print(response)
-                    //Happy
+                //Happy
                 case .failure:
                     print("Failure")
                     //Discuss Failure
@@ -62,6 +65,6 @@ class LocationManager: NSObject {
 
 extension LocationManager : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-       self.currentLocation = locations[0]
+        self.currentLocation = locations[0]
     }
 }
